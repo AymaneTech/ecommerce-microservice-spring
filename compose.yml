@@ -7,10 +7,10 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
-      - "${USER_POSTGRES_PORT}:5432"
+      - "${USER_POSTGRES_PORT}:${USER_POSTGRES_PORT}"
     volumes:
       - user_db_data:/var/lib/postgresql/data
-    command: [ "postgres", "-p", "5432" ]
+    command: [ "postgres", "-p", "${USER_POSTGRES_PORT}" ]
 
   order-service-db:
     image: postgres:16-alpine
@@ -20,10 +20,10 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
-      - "${ORDER_POSTGRES_PORT}:5432"
+      - "${ORDER_POSTGRES_PORT}:${ORDER_POSTGRES_PORT}"
     volumes:
       - order_db_data:/var/lib/postgresql/data
-    command: [ "postgres", "-p", "5432" ]
+    command: [ "postgres", "-p", "${ORDER_POSTGRES_PORT}" ]
 
   catalog-service-db:
     image: mongo:latest
