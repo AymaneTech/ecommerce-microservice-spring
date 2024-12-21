@@ -1,0 +1,40 @@
+services:
+  user-service-db:
+    image: postgres:16-alpine
+    container_name: user_postgres_db
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${USER_POSTGRES_PORT}:5432"
+    volumes:
+      - user_db_data:/var/lib/postgresql/data
+    command: [ "postgres", "-p", "5432" ]
+
+  order-service-db:
+    image: postgres:16-alpine
+    container_name: order_postgres_db
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${ORDER_POSTGRES_PORT}:5432"
+    volumes:
+      - order_db_data:/var/lib/postgresql/data
+    command: [ "postgres", "-p", "5432" ]
+
+  catalog-service-db:
+    image: mongo:latest
+    container_name: catalog_mongo_db
+    command: [ "mongod", "--noauth" ]
+    ports:
+      - "${MONGODB_PORT}:${MONGODB_PORT}"
+    volumes:
+      - catalog_db_data:/data/db
+
+volumes:
+  user_db_data:
+  order_db_data:
+  catalog_db_data:
