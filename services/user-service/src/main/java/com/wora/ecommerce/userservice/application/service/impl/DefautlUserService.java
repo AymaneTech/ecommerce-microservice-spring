@@ -29,8 +29,8 @@ public class DefautlUserService implements UserService {
     @Override
     public UserResponseDTO register(UserRegistrationRequestDTO request) {
         User user = mapper.toEntity(request)
-                .password("hashed password")
-                .role(roleService.findEntityById(request.roleId()));
+                .setPassword("hashed password")
+                .setRole(roleService.findEntityById(request.roleId()));
 
         User savedUser = repository.save(user);
         return mapper.toResponseDTO(savedUser);
@@ -64,8 +64,8 @@ public class DefautlUserService implements UserService {
                 .orElseThrow(() -> new ResourceNotFoundException("user", id));
 
         mapper.updateEntity(user, request);
-        user.password("hashed password")
-                .role(roleService.findEntityById(request.roleId()));
+        user.setPassword("hashed password")
+                .setRole(roleService.findEntityById(request.roleId()));
         User updatedUser = repository.save(user);
         return mapper.toResponseDTO(updatedUser);
     }

@@ -13,7 +13,7 @@ import lombok.experimental.Accessors;
 @Table(name = "users")
 @Getter
 @Setter
-@Accessors(chain = true, fluent = true)
+@Accessors(chain = true)
 @NoArgsConstructor
 public class User {
     @Id

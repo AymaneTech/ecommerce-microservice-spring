@@ -13,7 +13,7 @@ import java.util.List;
 @Table(name = "roles")
 @Getter
 @Setter
-@Accessors(chain = true, fluent = true)
+@Accessors(chain = true)
 @NoArgsConstructor
 public class Role {
     @Id

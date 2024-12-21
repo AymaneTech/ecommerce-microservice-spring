@@ -15,7 +15,7 @@ import java.util.List;
 @Table(name = "authorities")
 @Getter
 @Setter
-@Accessors(chain = true, fluent = true)
+@Accessors(chain = true)
 @NoArgsConstructor
 public class Authority {
 
