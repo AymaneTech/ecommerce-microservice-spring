@@ -1,9 +1,6 @@
 package com.wora.ecommerce.userservice.domain.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,6 +14,7 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 public class User {
     @Id
+    @GeneratedValue
     private Long id;
 
     private String email;
