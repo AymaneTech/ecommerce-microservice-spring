@@ -1,6 +1,10 @@
 package com.wora.ecommerce.userservice.application.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-public record RoleRequestDTO(@NotBlank String name) {
+import java.util.List;
+
+public record RoleRequestDTO(@NotBlank String name,
+                             @NotNull List<AuthorityRequestDTO> authorities) {
 }
