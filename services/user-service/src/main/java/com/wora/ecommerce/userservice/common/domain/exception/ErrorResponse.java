@@ -1,4 +1,4 @@
-package com.wora.ecommerce.userservice.common.domain.vo;
+package com.wora.ecommerce.userservice.common.domain.exception;
 
 import java.time.LocalDateTime;
 

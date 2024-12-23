@@ -1,7 +1,5 @@
-package com.wora.ecommerce.userservice.common.infrastructure.web;
+package com.wora.ecommerce.userservice.common.domain.exception;
 
-import com.wora.ecommerce.userservice.common.domain.exception.BusinessValidationException;
-import com.wora.ecommerce.userservice.common.domain.vo.ErrorResponse;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
